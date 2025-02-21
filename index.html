@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist/annotation.js"></script>
+</head>
+
+<style>
+    #parent {
+        width: 800px;
+        height: 400px;
+        background-color: rgb(233, 153, 153);
+        position: relative;
+    }
+
+    #drawing-area-A {
+        position: absolute;
+        width: 400px;
+        height: 100%;
+    }
+
+    #drawing-area-B {
+        position: absolute;
+        width: 400px;
+        left: 400px;
+        height: 100%;
+        background-color: green;
+    }
+</style>
+
+<body>
+    <div style="display: flex">
+        <div id='left' style="width: 200px; height: 100vh; border: 1px solid black">Left</div>
+        <div style="display: flex; flex-direction: column;">
+            <div id='top' style="width: 100%; height: 100px; border: 1px solid black">Top</div>
+            <div id='parent'>
+                <div id='drawing-area-A'>
+                </div>
+                <div id='drawing-area-B'>
+                </div>
+            </div>
+            <div id='bottom' style="width: 100%; height: 100px; border: 1px solid black">Bottom</div>
+        </div>
+
+        <div id='right' style="width: 200px; height: 100vh; border: 1px solid black">Right</div>
+    </div>
+</body>
+
+<script>
+    var instance;
+    document.addEventListener('DOMContentLoaded', function (event) {
+
+        let initOptions = {
+            containment: '#parent',
+            baseHeight: 420
+        }
+        let drawingAreas = ['#drawing-area-A', '#drawing-area-B'];
+        instance = new Annotation(drawingAreas, initOptions);
+
+        instance.Drawing.start('highlighter', {
+            strokeColor: 'yellow',
+            strokeWidth: 20,
+            strokeBorder: true,
+        });
+    })
+</script>
+
+</html>
