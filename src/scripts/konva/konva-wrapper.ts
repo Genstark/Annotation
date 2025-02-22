@@ -68,7 +68,7 @@ class KonvaWrapper implements IKonvaWrapper {
     private lastLeftEdge: any;
     private lastRightEdge: any;
     private edgeOffset: any;
-    private lockedPoints: any;
+    // private lockedPoints: any;
 
     //properties for undo/redo stack
     private undoStack: Array<IUndoRedoObject>;
@@ -857,7 +857,7 @@ class KonvaWrapper implements IKonvaWrapper {
             this.startingDrawingArea = drawingArea;
             this.currentDrawingArea = drawingArea;
             this.lastPosition = JSON.parse(JSON.stringify(pos));
-            this.lockedPoints = JSON.parse(JSON.stringify(this.lastLine.getPoints()));
+            // this.lockedPoints = JSON.parse(JSON.stringify(this.lastLine.getPoints()));
 
             // Add to undo stack
             let undoObj: IUndoRedoObject = {
@@ -905,7 +905,7 @@ class KonvaWrapper implements IKonvaWrapper {
             if (pos.x < Math.abs(this.stageMap[drawingArea].getWidth() * 0) - 7) {
                 this._stageMouseUpHandler(drawingArea, eventObj);
             }
-            else if (pos.y <  Math.abs(this.stageMap[drawingArea].getWidth() * 0) - 7 || pos.y > this.stageMap[drawingArea].getHeight() - 7) {
+            else if (pos.y <  Math.abs(this.stageMap[drawingArea].getWidth() * 0 - 7) || pos.y > this.stageMap[drawingArea].getHeight() - 7) {
                 this._stageMouseUpHandler(drawingArea, eventObj);
             }
         }
@@ -913,7 +913,7 @@ class KonvaWrapper implements IKonvaWrapper {
             if (pos.x > this.stageMap[drawingArea].getWidth() - 7) {
                 this._stageMouseUpHandler(drawingArea, eventObj);
             }
-            else if (pos.y <  Math.abs(this.stageMap[drawingArea].getWidth() * 0) - 7 || pos.y > this.stageMap[drawingArea].getHeight() - 7) {
+            else if (pos.y <  Math.abs(this.stageMap[drawingArea].getWidth() * 0 - 7) || pos.y > this.stageMap[drawingArea].getHeight() - 7) {
                 this._stageMouseUpHandler(drawingArea, eventObj);
             }
         }
