@@ -902,7 +902,7 @@ class KonvaWrapper implements IKonvaWrapper {
         }
 
         if (this.currentDrawingArea === "#drawing-area-A") {
-            if (pos.x < Math.abs(this.stageMap[drawingArea].getWidth() * 0) - 7) {
+            if (pos.x < Math.abs(this.stageMap[drawingArea].getWidth() * 0 - 7)) {
                 this._stageMouseUpHandler(drawingArea, eventObj);
             }
             else if (pos.y <  Math.abs(this.stageMap[drawingArea].getWidth() * 0 - 7) || pos.y > this.stageMap[drawingArea].getHeight() - 7) {
